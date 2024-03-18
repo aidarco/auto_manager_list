@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "229385586199",
+    "project_id": "automanager-b0c67",
+    "storage_bucket": "automanager-b0c67.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:229385586199:android:686c7b4809719741adbe52",
+        "android_client_info": {
+          "package_name": "com.example.auto_manager_list"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAhRxjjUI22MajxR7sA9aBpOLHWLZoNBqc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
