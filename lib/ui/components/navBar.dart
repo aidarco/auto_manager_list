@@ -39,13 +39,26 @@ class _Nav_barState extends State<Nav_bar> {
         },
         backgroundColor: Colors.grey.shade800,
         color: Colors.white10,
+        height: 75,
         buttonBackgroundColor: Colors.white,
         items: const [
           Icon(Icons.add),
-          Icon(Icons.car_rental),
-          Icon(Icons.wheelchair_pickup),
-          Icon(Icons.engineering),
-          Icon(Icons.abc),
+          Padding(
+            padding: EdgeInsets.all(8.0),
+            child: Text("Кузов"),
+          ),
+          Padding(
+            padding: EdgeInsets.all(8.0),
+            child: Text("Шасси"),
+          ),
+          Padding(
+            padding: EdgeInsets.all(8.0),
+            child: Text("Ходовая"),
+          ),
+          Padding(
+            padding: EdgeInsets.all(8.0),
+            child: Text("?", style: TextStyle(fontSize: 24),),
+          ),
 
         ],),
 

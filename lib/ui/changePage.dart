@@ -25,7 +25,7 @@ class _ChangePageState extends State<ChangePage> {
     return Scaffold(
       backgroundColor: Colors.grey.shade800,
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           "Изменить",
           style: TextStyle(color: Colors.white, fontSize: 24),
         ),
@@ -39,7 +39,7 @@ class _ChangePageState extends State<ChangePage> {
             decoration: InputDecoration(
               border:
                   OutlineInputBorder(borderRadius: BorderRadius.circular(16)),
-              hintStyle: TextStyle(color: Colors.white),
+              hintStyle: const TextStyle(color: Colors.white),
               filled: true,
               fillColor: Colors.white,
               focusedBorder: UnderlineInputBorder(
@@ -49,7 +49,7 @@ class _ChangePageState extends State<ChangePage> {
             controller: controller
               ..text = Get.arguments["description"].toString(),
           ),
-          SizedBox(height: 24,),
+          const SizedBox(height: 24,),
           DropdownButton(
               value: selectedValue,
               onChanged: (String? newValue){
@@ -69,8 +69,25 @@ class _ChangePageState extends State<ChangePage> {
           ),
           TextButton(
               onPressed: () {
-                FirebaseFirestoreService().moveProblem(id: Get.arguments["id"], category: Get.arguments["category"], newCategory: selectedValue);
-                Navigator.pop(context);
+                if (selectedValue != Get.arguments["category"]) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+
+                        backgroundColor: Colors.white,
+                        content: Text("перемещение из " +  Get.arguments["category"].toString() + " в " + selectedValue + " выполнено успешно", style: TextStyle(color:Colors.black, fontSize: 24),),
+                      )
+                  );
+                  FirebaseFirestoreService().moveProblem(
+                      id: Get.arguments["id"],
+                      category: Get.arguments["category"],
+                      newCategory: selectedValue);
+                  Navigator.pop(context);
+
+                }
+                else
+                  {
+                    Navigator.pop(context);
+                  }
               },
               child: const Text(
                 "Переместить",

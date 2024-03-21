@@ -13,6 +13,13 @@ class OtherPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.grey.shade800,
       appBar: AppBar(
+        actions: [
+          TextButton(onPressed: (){
+            FirebaseFirestoreService().checkAndMoveOtherProblems();
+
+          }, child: Text("Проверка!",style: TextStyle(color: Colors.white, fontSize: 20),))
+        ],
+        
         title: Text("Неопределенные", style: TextStyle(color: Colors.white),),
       ),
       body: StreamBuilder(

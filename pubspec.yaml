@@ -38,6 +38,8 @@ dependencies:
   cloud_firestore: ^4.15.9
   firebase_core: ^2.27.1
   get: ^4.6.6
+  flutter_flushbar: ^0.0.2
+  flutter_inapp_notifications: ^1.0.0
 
 dev_dependencies:
   flutter_test:
