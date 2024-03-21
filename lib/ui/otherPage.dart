@@ -1,23 +1,22 @@
-import 'package:auto_manager_list/services/firebase_firestore.dart';
+import 'package:auto_manager_list/ui/changePage.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
-import 'changePage.dart';
+import '../services/firebase_firestore.dart';
 
-class BodyPage extends StatelessWidget {
-  const BodyPage({super.key});
-  final String category = "body";
+class OtherPage extends StatelessWidget {
+  const OtherPage({super.key});
 
+  final String category = "other";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey.shade800,
       appBar: AppBar(
-        title: Text("Кузов", style: TextStyle(color: Colors.white),),
+        title: Text("Неопределенные", style: TextStyle(color: Colors.white),),
       ),
       body: StreamBuilder(
-          stream: FirebaseFirestoreService().getProblems(),
+          stream: FirebaseFirestoreService().getProblemsOther(),
           builder: (context, snapshot) {
             if (snapshot.hasError) {
               return Center(
@@ -33,7 +32,7 @@ class BodyPage extends StatelessWidget {
                 itemCount: snapshot.data!.length,
                 itemBuilder: (context, index) {
                   final problem =
-                  snapshot.data?[index]; // Access problem from list
+                      snapshot.data?[index]; // Access problem from list
                   return GestureDetector(
                     onTap: () {
                       Get.to(() => ChangePage(), arguments: {
@@ -54,10 +53,10 @@ class BodyPage extends StatelessWidget {
                             padding: const EdgeInsets.fromLTRB(12, 16, 12, 16),
                             child: ListTile(
                                 title: Text(
-                                  problem?.description ?? "",
-                                  style:
+                              problem?.description ?? "",
+                              style:
                                   const TextStyle(color: Colors.white, fontSize: 24),
-                                )),
+                            )),
                           )),
                     ),
                   );

@@ -1,3 +1,4 @@
+import 'package:auto_manager_list/ui/otherPage.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 
@@ -22,7 +23,7 @@ class _Nav_barState extends State<Nav_bar> {
 
   int _curentInxed = 0;
 
-  final tabs = [MainPage(), const BodyPage(), const ClassisPage(), const EnginePage()];
+  final tabs = [MainPage(), const BodyPage(), const ClassisPage(), const EnginePage(), const OtherPage()];
 
   @override
   Widget build(BuildContext context) {
@@ -44,6 +45,7 @@ class _Nav_barState extends State<Nav_bar> {
           Icon(Icons.car_rental),
           Icon(Icons.wheelchair_pickup),
           Icon(Icons.engineering),
+          Icon(Icons.abc),
 
         ],),
 
